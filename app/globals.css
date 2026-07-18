@@ -82,9 +82,6 @@ button:disabled { cursor: wait; opacity: .72; }
 .side-nav button.active { background: var(--orange-pale); color: #a76206; }
 .side-nav button em { margin-left: auto; background: #f0f1f3; color: #747b87; min-width: 24px; height: 21px; border-radius: 20px; display: grid; place-items: center; font-size: 10px; font-style: normal; }
 .side-nav button.active em { background: #fff; color: #b56b09; }
-.pro-track-link { width: 100%; height: 43px; padding: 0 11px; display: flex; align-items: center; gap: 12px; color: #727986; border-radius: 9px; text-decoration: none; font-weight: 600; font-size: 13px; }
-.pro-track-link:hover { background: #faf7f1; color: var(--ink); }
-.pro-track-link em { margin-left: auto; padding: 4px 6px; border-radius: 5px; background: #202632; color: #fff; font-size: 7px; font-style: normal; letter-spacing: .6px; }
 .hub-plan { padding: 15px; background: #f7f8f9; border-radius: 13px; margin-top: auto; display: flex; flex-direction: column; }
 .plan-icon { width: 36px; height: 36px; display: grid; place-items: center; color: #bd740e; background: var(--orange-pale); border-radius: 9px; margin-bottom: 11px; }
 .hub-plan strong { font-size: 13px; }
