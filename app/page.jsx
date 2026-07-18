@@ -304,6 +304,7 @@ function Sidebar({ page, setPage, open, setOpen, onLogout }) {
           return <button key={item.label} className={page === item.label ? 'active' : ''} onClick={() => { setPage(item.label); setOpen(false); }}><Icon size={19}/><span>{item.label}</span>{item.count && <em>{item.count}</em>}</button>;
         })}
         <span className="nav-group-label second">MANAGE</span>
+        <a className="pro-track-link" href="/pro-track"><Building2 size={19}/><span>Chaise Pro Track</span><em>SUPER</em></a>
         <button><Users size={19}/><span>Team access</span></button>
         <button><Settings size={19}/><span>Settings</span></button>
         <button><CircleHelp size={19}/><span>Help centre</span></button>
