@@ -46,7 +46,6 @@ const projects = [
     freelancer: 'Chibuzo Ogbonnaya',
     initials: 'CO',
     client: 'NovaPay Africa',
-    hub: 'Cafe One · Abuja',
     category: 'Brand & product design',
     value: 450000,
     hubFee: 22500,
@@ -54,7 +53,9 @@ const projects = [
     end: '14 Aug 2026',
     milestone: '2 of 2',
     progress: 68,
-    status: 'Active',
+    status: 'Ongoing',
+    paymentStatus: 'Pending',
+    paymentDue: '14 Aug 2026',
     today: '6h 42m',
   },
   {
@@ -63,7 +64,6 @@ const projects = [
     freelancer: 'Amaka Eze',
     initials: 'AE',
     client: 'Migo Stores',
-    hub: 'Cafe One · Lekki',
     category: 'Accounting & consulting',
     value: 280000,
     hubFee: 14000,
@@ -71,7 +71,9 @@ const projects = [
     end: '25 Jul 2026',
     milestone: '1 of 2',
     progress: 82,
-    status: 'Active',
+    status: 'Ongoing',
+    paymentStatus: 'Paid',
+    paymentDue: '15 Jul 2026',
     today: '4h 16m',
   },
   {
@@ -80,7 +82,6 @@ const projects = [
     freelancer: 'Farouk Bello',
     initials: 'FB',
     client: 'Kora Health',
-    hub: 'Workstation · Lagos VI',
     category: 'Customer service',
     value: 320000,
     hubFee: 16000,
@@ -89,6 +90,8 @@ const projects = [
     milestone: '3 of 3',
     progress: 96,
     status: 'Ending soon',
+    paymentStatus: 'Overdue',
+    paymentDue: '16 Jul 2026',
     today: '7h 08m',
   },
   {
@@ -97,7 +100,6 @@ const projects = [
     freelancer: 'Tomi Adeyemi',
     initials: 'TA',
     client: 'Pine Retail',
-    hub: 'Cafe One · Yaba',
     category: 'Data science & analytics',
     value: 600000,
     hubFee: 30000,
@@ -106,6 +108,44 @@ const projects = [
     milestone: '3 of 3',
     progress: 100,
     status: 'Completed',
+    paymentStatus: 'Paid',
+    paymentDue: '12 Jul 2026',
+    today: '—',
+  },
+  {
+    id: 'CH-1987',
+    title: 'Commercial agreement review',
+    freelancer: 'Nneka James',
+    initials: 'NJ',
+    client: 'Helio Logistics',
+    category: 'Legal services',
+    value: 375000,
+    hubFee: 18750,
+    start: '10 Jul 2026',
+    end: '31 Jul 2026',
+    milestone: '1 of 2',
+    progress: 42,
+    status: 'Ongoing',
+    paymentStatus: 'Scheduled',
+    paymentDue: '31 Jul 2026',
+    today: '4h 09m',
+  },
+  {
+    id: 'CH-1974',
+    title: 'Mobile onboarding flow',
+    freelancer: 'David Obi',
+    initials: 'DO',
+    client: 'Bridge Finance',
+    category: 'Product design',
+    value: 245000,
+    hubFee: 12250,
+    start: '02 Jul 2026',
+    end: '16 Jul 2026',
+    milestone: '2 of 2',
+    progress: 100,
+    status: 'Completed',
+    paymentStatus: 'Paid',
+    paymentDue: '16 Jul 2026',
     today: '—',
   },
 ];
@@ -114,15 +154,27 @@ const attendance = [
   { initials: 'CO', name: 'Chibuzo Ogbonnaya', project: 'NovaPay brand identity rollout', in: '08:47', out: '—', duration: '6h 42m', state: 'In hub' },
   { initials: 'AE', name: 'Amaka Eze', project: 'Ledger reconciliation sprint', in: '09:12', out: '13:28', duration: '4h 16m', state: 'Checked out' },
   { initials: 'FB', name: 'Farouk Bello', project: 'Support knowledge base setup', in: '08:31', out: '—', duration: '7h 08m', state: 'In hub' },
-  { initials: 'NJ', name: 'Nneka James', project: 'Legal contract review', in: '10:03', out: '14:12', duration: '4h 09m', state: 'Checked out' },
+  { initials: 'NJ', name: 'Nneka James', project: 'Commercial agreement review', in: '10:03', out: '14:12', duration: '4h 09m', state: 'Checked out' },
+  { initials: 'DO', name: 'David Obi', project: 'Mobile onboarding flow', in: '09:41', out: '15:06', duration: '5h 25m', state: 'Checked out' },
+  { initials: 'ZA', name: 'Zainab Ali', project: 'Health data migration', in: '11:18', out: '—', duration: '2h 34m', state: 'In hub' },
 ];
 
-const hubs = [
-  { name: 'Cafe One · Abuja', city: 'Abuja', active: 23, desks: 31, utilization: 74, manager: 'Ada Obi', settlement: 84250 },
-  { name: 'Cafe One · Lekki', city: 'Lagos', active: 18, desks: 24, utilization: 68, manager: 'Bola Ekun', settlement: 71800 },
-  { name: 'Workstation · Lagos VI', city: 'Lagos', active: 14, desks: 20, utilization: 63, manager: 'Ife Okoro', settlement: 56600 },
-  { name: 'Ventures Park · Abuja', city: 'Abuja', active: 9, desks: 17, utilization: 52, manager: 'Nura Aliyu', settlement: 39400 },
+const people = [
+  { initials: 'CO', name: 'Chibuzo Ogbonnaya', role: 'Brand & product designer', email: 'chibuzo@chaise.work', phone: '+234 803 241 8840', project: 'NovaPay brand identity rollout', status: 'In hub', hours: '64h 36m', visits: 11, payment: 'Pending' },
+  { initials: 'AE', name: 'Amaka Eze', role: 'Accounting consultant', email: 'amaka@chaise.work', phone: '+234 806 114 2093', project: 'Ledger reconciliation sprint', status: 'Checked out', hours: '48h 12m', visits: 9, payment: 'Paid' },
+  { initials: 'FB', name: 'Farouk Bello', role: 'Customer success specialist', email: 'farouk@chaise.work', phone: '+234 812 603 7714', project: 'Support knowledge base setup', status: 'In hub', hours: '72h 08m', visits: 13, payment: 'Overdue' },
+  { initials: 'NJ', name: 'Nneka James', role: 'Legal consultant', email: 'nneka@chaise.work', phone: '+234 809 411 5721', project: 'Commercial agreement review', status: 'Checked out', hours: '31h 44m', visits: 6, payment: 'Scheduled' },
+  { initials: 'DO', name: 'David Obi', role: 'Product designer', email: 'david@chaise.work', phone: '+234 815 340 2298', project: 'Mobile onboarding flow', status: 'Checked out', hours: '58h 25m', visits: 10, payment: 'Paid' },
+  { initials: 'ZA', name: 'Zainab Ali', role: 'Data engineer', email: 'zainab@chaise.work', phone: '+234 807 995 6102', project: 'Health data migration', status: 'In hub', hours: '22h 34m', visits: 4, payment: 'Pending' },
 ];
+
+const hubProfile = {
+  name: 'Cafe One · Abuja',
+  address: '1st Floor, Sterling Bank Plaza, CBD Abuja, FCT',
+  manager: 'Ada Okafor',
+  desks: 31,
+  occupied: 23,
+};
 
 const formatNaira = (amount) => `₦${amount.toLocaleString('en-NG')}`;
 
@@ -171,8 +223,8 @@ function Login({ onLogin }) {
           <div className="auth-brand"><Logo /></div>
           <div className="story-content">
             <div className="story-kicker"><ShieldCheck size={18} /> Protected hub operations</div>
-            <h1>One calm place to run every Chaise Hub.</h1>
-            <p>Track live attendance, manage projects, and keep every partner centre aligned.</p>
+            <h1>One calm place to run your Chaise Hub.</h1>
+            <p>Protect access to your centre’s attendance, projects, people, and payment records.</p>
           </div>
           <div className="story-footer"><span>chaise hub admin</span><span>Secure access</span></div>
         </section>
@@ -203,11 +255,11 @@ function Login({ onLogin }) {
         <div className="auth-brand"><Logo /></div>
         <div className="story-content">
           <div className="story-kicker"><Zap size={18} /> Focus. Connect. Deliver.</div>
-          <h1>The operating system for every Chaise Hub.</h1>
-          <p>Manage projects, verify QR passes, and keep attendance accurate in real time.</p>
+          <h1>Everything happening in your hub, in one place.</h1>
+          <p>Manage every person, project, QR check-in, work hour, and payment at Cafe One Abuja.</p>
           <div className="auth-metrics">
-            <div><strong>64</strong><span>Active projects</span></div>
-            <div><strong>51</strong><span>Partner hubs</span></div>
+            <div><strong>6</strong><span>Current projects</span></div>
+            <div><strong>23</strong><span>People on site</span></div>
             <div><strong>98.4%</strong><span>Check-in accuracy</span></div>
           </div>
         </div>
@@ -235,10 +287,10 @@ function Login({ onLogin }) {
 
 const navItems = [
   { label: 'Overview', icon: LayoutDashboard },
-  { label: 'Projects', icon: FileText, count: 64 },
-  { label: 'Attendance', icon: Clock3, count: 12 },
-  { label: 'Hub centres', icon: Building2 },
-  { label: 'Settlements', icon: WalletCards },
+  { label: 'People', icon: Users, count: 23 },
+  { label: 'Attendance', icon: Clock3, count: 3 },
+  { label: 'Projects', icon: FileText, count: 6 },
+  { label: 'Payments', icon: WalletCards, count: 2 },
 ];
 
 function Sidebar({ page, setPage, open, setOpen, onLogout }) {
@@ -258,10 +310,10 @@ function Sidebar({ page, setPage, open, setOpen, onLogout }) {
       </nav>
       <div className="hub-plan">
         <div className="plan-icon"><Building2 size={20}/></div>
-        <strong>Chaise Network</strong>
-        <span>51 partner centres active</span>
-        <div className="plan-progress"><i style={{width: '82%'}} /></div>
-        <small>82% monthly capacity</small>
+        <strong>{hubProfile.name}</strong>
+        <span>{hubProfile.occupied} of {hubProfile.desks} desks occupied</span>
+        <div className="plan-progress"><i style={{width: '74%'}} /></div>
+        <small>74% live occupancy</small>
       </div>
       <button className="logout" onClick={onLogout}><LogOut size={18}/> Log out</button>
     </aside>
@@ -272,11 +324,11 @@ function Topbar({ setSidebarOpen, onScan }) {
   return (
     <header className="topbar">
       <button className="menu-button" onClick={() => setSidebarOpen(true)}><Menu size={22}/></button>
-      <div className="global-search"><Search size={18}/><input placeholder="Search people, projects or hub ID..." /><kbd>⌘ K</kbd></div>
+      <div className="global-search"><Search size={18}/><input placeholder="Search people, projects or payments..." /><kbd>⌘ K</kbd></div>
       <div className="top-actions">
         <button className="scan-button" onClick={onScan}><QrCode size={18}/> Scan QR pass</button>
         <button className="icon-button" aria-label="Notifications"><Bell size={20}/><span className="notification-dot"/></button>
-        <div className="profile"><div className="avatar orange">AO</div><div><strong>Ada Okafor</strong><span>Super admin</span></div><ChevronDown size={16}/></div>
+        <div className="profile"><div className="avatar orange">AO</div><div><strong>{hubProfile.manager}</strong><span>Hub manager</span></div><ChevronDown size={16}/></div>
       </div>
     </header>
   );
@@ -303,47 +355,49 @@ function Overview({ onViewProject, onScan, setPage }) {
   return (
     <>
       <section className="page-heading">
-        <div><div className="breadcrumb">Dashboard <ChevronRight size={14}/> Overview</div><h1>Good afternoon, Ada</h1><p>Here’s what’s happening across the Chaise Hub network today.</p></div>
+        <div><div className="breadcrumb">{hubProfile.name} <ChevronRight size={14}/> Overview</div><h1>Good afternoon, Ada</h1><p>{hubProfile.address}</p></div>
         <div className="heading-actions"><button className="secondary-button"><Download size={17}/> Export report</button><button className="primary-button compact" onClick={onScan}><QrCode size={17}/> Scan QR pass</button></div>
       </section>
       <section className="stats-grid">
-        <StatCard icon={FileText} label="Active projects" value="64" change="+8.2%" note="5 ending this week" />
-        <StatCard icon={Users} label="People in hubs" value="128" change="+12.4%" note="Across 31 centres" tone="green" />
-        <StatCard icon={Timer} label="Hours logged today" value="846h" change="+6.1%" note="6.6 hours average" tone="blue" />
-        <StatCard icon={Banknote} label="Pending settlements" value="₦1.28m" change="7.8%" note="Next run · 31 Jul" tone="purple" />
+        <StatCard icon={LogIn} label="Check-ins today" value="8" change="+14.2%" note="3 people currently in the hub" />
+        <StatCard icon={Users} label="Active members" value="23" change="+4.5%" note="6 currently assigned projects" tone="green" />
+        <StatCard icon={Timer} label="Hours logged today" value="36h 14m" change="+6.1%" note="5h 11m average visit" tone="blue" />
+        <StatCard icon={Banknote} label="Hub revenue · July" value="₦113,500" change="+9.8%" note="₦57,250 awaiting payment" tone="purple" />
       </section>
       <section className="dashboard-grid">
         <div className="panel activity-panel">
-          <div className="panel-head"><div><h2>Hub activity</h2><p>Daily check-ins across all partner centres</p></div><button className="period-button">Last 7 days <ChevronDown size={15}/></button></div>
-          <div className="chart-summary"><div><span>1,846</span><small>Total check-ins</small></div><div className="legend"><span><i className="legend-orange"/>Check-ins</span><span><i className="legend-gray"/>Capacity</span></div></div>
+          <div className="panel-head"><div><h2>Daily footfall</h2><p>Verified arrivals and departures at this centre</p></div><button className="period-button">Last 7 days <ChevronDown size={15}/></button></div>
+          <div className="chart-summary"><div><span>86</span><small>Total visits this week</small></div><div className="legend"><span><i className="legend-orange"/>Check-ins</span><span><i className="legend-gray"/>Check-outs</span></div></div>
           <div className="bar-chart" aria-label="Check-ins chart">
             {[
-              ['Fri', 54, 78], ['Sat', 38, 64], ['Sun', 31, 59], ['Mon', 67, 84], ['Tue', 73, 88], ['Wed', 82, 92], ['Thu', 70, 86]
-            ].map(([day, value, capacity]) => <div className="bar-item" key={day}><div className="bars"><i style={{height: `${capacity}%`}}/><b style={{height: `${value}%`}}/></div><span>{day}</span></div>)}
+              ['Fri', 48, 42], ['Sat', 36, 34], ['Sun', 24, 21], ['Mon', 71, 66], ['Tue', 64, 58], ['Wed', 82, 76], ['Thu', 69, 61]
+            ].map(([day, arrivals, departures]) => <div className="bar-item" key={day}><div className="bars"><i style={{height: `${departures}%`}}/><b style={{height: `${arrivals}%`}}/></div><span>{day}</span></div>)}
           </div>
         </div>
         <div className="panel live-panel">
-          <div className="panel-head"><div><h2>Live attendance</h2><p><span className="live-dot"/> 128 people currently active</p></div><button className="text-button" onClick={() => setPage('Attendance')}>View all <ArrowRight size={15}/></button></div>
+          <div className="panel-head"><div><h2>Who is here now</h2><p><span className="live-dot"/> 3 people currently checked in</p></div><button className="text-button" onClick={() => setPage('Attendance')}>View all <ArrowRight size={15}/></button></div>
           <div className="attendance-list">
-            {attendance.slice(0, 3).map((entry) => <div className="attendance-row" key={entry.name}><Avatar initials={entry.initials}/><div className="attendance-person"><strong>{entry.name}</strong><span>{entry.project}</span></div><div className="attendance-time"><strong>{entry.in}</strong><span>{entry.state}</span></div></div>)}
+            {attendance.filter(entry => entry.state === 'In hub').map((entry) => <div className="attendance-row" key={entry.name}><Avatar initials={entry.initials}/><div className="attendance-person"><strong>{entry.name}</strong><span>{entry.project}</span></div><div className="attendance-time"><strong>{entry.in}</strong><span>{entry.state}</span></div></div>)}
           </div>
           <button className="panel-cta" onClick={onScan}><QrCode size={18}/> Scan a hub pass</button>
         </div>
       </section>
       <section className="panel projects-panel">
-        <div className="panel-head"><div><h2>Active projects</h2><p>Projects currently using partner hub spaces</p></div><button className="text-button" onClick={() => setPage('Projects')}>View all projects <ArrowRight size={15}/></button></div>
+        <div className="panel-head"><div><h2>Current projects</h2><p>Work being carried out from {hubProfile.name}</p></div><button className="text-button" onClick={() => setPage('Projects')}>View all projects <ArrowRight size={15}/></button></div>
         <ProjectTable data={projects.slice(0, 3)} onViewProject={onViewProject}/>
       </section>
       <section className="bottom-grid">
-        <div className="panel utilization-panel">
-          <div className="panel-head"><div><h2>Hub centre utilization</h2><p>Today’s busiest partner locations</p></div><button className="icon-button"><MoreHorizontal size={20}/></button></div>
-          {hubs.slice(0,3).map(hub => <div className="hub-util" key={hub.name}><div><strong>{hub.name}</strong><span>{hub.active} active freelancers</span></div><div className="util-bar"><i style={{width: `${hub.utilization}%`}}/></div><b>{hub.utilization}%</b></div>)}
+        <div className="panel revenue-panel">
+          <div className="panel-head"><div><h2>Payment overview</h2><p>Hub revenue attached to each worker’s project</p></div><button className="text-button" onClick={() => setPage('Payments')}>Manage payments <ArrowRight size={15}/></button></div>
+          <div className="revenue-summary"><div><span>Received</span><strong>₦56,250</strong><small>3 payments</small></div><div><span>Pending</span><strong>₦41,250</strong><small>2 payments</small></div><div><span>Overdue</span><strong>₦16,000</strong><small>1 payment</small></div></div>
+          <div className="revenue-progress"><i style={{width:'49.5%'}}/><b style={{width:'36.3%'}}/></div>
+          <div className="revenue-legend"><span><i className="paid-dot"/>Received 49.5%</span><span><i className="pending-dot"/>Pending 36.3%</span><span><i className="overdue-dot"/>Overdue 14.2%</span></div>
         </div>
         <div className="panel alerts-panel">
-          <div className="panel-head"><div><h2>Needs attention</h2><p>Time-sensitive project updates</p></div><span className="alert-count">3</span></div>
+          <div className="panel-head"><div><h2>Needs attention</h2><p>Actions for this hub centre</p></div><span className="alert-count">3</span></div>
           <div className="alert-item warning"><div className="alert-icon"><Timer size={18}/></div><div><strong>Project ending tomorrow</strong><p>Support knowledge base setup · CH-2021</p></div><ChevronRight size={18}/></div>
-          <div className="alert-item"><div className="alert-icon"><Clock3 size={18}/></div><div><strong>Missing check-out</strong><p>2 records from Cafe One · Lekki</p></div><ChevronRight size={18}/></div>
-          <div className="alert-item"><div className="alert-icon"><Banknote size={18}/></div><div><strong>Settlement ready to review</strong><p>₦482,300 across 9 hub centres</p></div><ChevronRight size={18}/></div>
+          <div className="alert-item"><div className="alert-icon"><Clock3 size={18}/></div><div><strong>Missing check-out</strong><p>1 attendance record requires review</p></div><ChevronRight size={18}/></div>
+          <div className="alert-item"><div className="alert-icon"><Banknote size={18}/></div><div><strong>Payment overdue</strong><p>₦16,000 hub revenue · Farouk Bello</p></div><ChevronRight size={18}/></div>
         </div>
       </section>
     </>
@@ -354,14 +408,14 @@ function ProjectTable({ data, onViewProject }) {
   return (
     <div className="table-wrap">
       <table>
-        <thead><tr><th>Project</th><th>Freelancer</th><th>Hub centre</th><th>Timeline</th><th>Today</th><th>Status</th><th></th></tr></thead>
+        <thead><tr><th>Project</th><th>Freelancer</th><th>Timeline</th><th>Hours today</th><th>Project</th><th>Payment</th><th></th></tr></thead>
         <tbody>{data.map(project => <tr key={project.id}>
           <td><button className="project-cell" onClick={() => onViewProject(project)}><strong>{project.title}</strong><span>{project.id} · {project.category}</span></button></td>
           <td><div className="person-cell"><Avatar initials={project.initials}/><span>{project.freelancer}</span></div></td>
-          <td>{project.hub}</td>
           <td><div className="timeline-cell"><span>{project.end}</span><div><i style={{width: `${project.progress}%`}}/></div></div></td>
           <td><strong>{project.today}</strong></td>
           <td><StatusBadge status={project.status}/></td>
+          <td><StatusBadge status={project.paymentStatus}/></td>
           <td><button className="icon-button" onClick={() => onViewProject(project)} aria-label={`View ${project.title}`}><ChevronRight size={18}/></button></td>
         </tr>)}</tbody>
       </table>
@@ -375,12 +429,12 @@ function ProjectsPage({ onViewProject }) {
   const filtered = useMemo(() => projects.filter(project => (status === 'All' || project.status === status) && `${project.title} ${project.freelancer} ${project.id}`.toLowerCase().includes(query.toLowerCase())), [query, status]);
   return (
     <>
-      <section className="page-heading"><div><div className="breadcrumb">Workspace <ChevronRight size={14}/> Projects</div><h1>Projects</h1><p>Monitor every active contract, milestone, timeline, and workspace record.</p></div><button className="primary-button compact"><FileText size={17}/> Add project</button></section>
+      <section className="page-heading"><div><div className="breadcrumb">{hubProfile.name} <ChevronRight size={14}/> Projects</div><h1>Projects</h1><p>Track every project being delivered from this centre, from arrival to final payment.</p></div><button className="primary-button compact"><FileText size={17}/> Add project</button></section>
       <section className="mini-stats">
-        <div><span>All projects</span><strong>128</strong></div><div><span>Active</span><strong>64</strong></div><div><span>Ending this week</span><strong>5</strong></div><div><span>Completed this month</span><strong>22</strong></div>
+        <div><span>All projects</span><strong>6</strong></div><div><span>Ongoing</span><strong>3</strong></div><div><span>Completed</span><strong>2</strong></div><div><span>Fully paid</span><strong>3</strong></div>
       </section>
       <section className="panel data-panel">
-        <div className="table-tools"><div className="search-control"><Search size={17}/><input placeholder="Search projects or people" value={query} onChange={e => setQuery(e.target.value)}/></div><div className="filter-tabs">{['All','Active','Ending soon','Completed'].map(item => <button key={item} className={status === item ? 'selected' : ''} onClick={() => setStatus(item)}>{item}</button>)}</div><button className="secondary-button"><Filter size={16}/> Filters</button></div>
+        <div className="table-tools"><div className="search-control"><Search size={17}/><input placeholder="Search projects or people" value={query} onChange={e => setQuery(e.target.value)}/></div><div className="filter-tabs">{['All','Ongoing','Ending soon','Completed'].map(item => <button key={item} className={status === item ? 'selected' : ''} onClick={() => setStatus(item)}>{item}</button>)}</div><button className="secondary-button"><Filter size={16}/> Filters</button></div>
         <ProjectTable data={filtered} onViewProject={onViewProject}/>
         {filtered.length === 0 && <div className="empty-state"><Search size={24}/><strong>No projects found</strong><span>Try a different search or status.</span></div>}
       </section>
@@ -391,37 +445,56 @@ function ProjectsPage({ onViewProject }) {
 function AttendancePage({ onScan }) {
   return (
     <>
-      <section className="page-heading"><div><div className="breadcrumb">Workspace <ChevronRight size={14}/> Attendance</div><h1>Attendance</h1><p>Live time-in, time-out, and verified hours across the network.</p></div><button className="primary-button compact" onClick={onScan}><QrCode size={17}/> Scan QR pass</button></section>
+      <section className="page-heading"><div><div className="breadcrumb">{hubProfile.name} <ChevronRight size={14}/> Attendance</div><h1>Attendance</h1><p>Live arrivals, departures, and verified working hours for this centre.</p></div><button className="primary-button compact" onClick={onScan}><QrCode size={17}/> Scan QR pass</button></section>
       <section className="stats-grid attendance-stats">
-        <StatCard icon={LogIn} label="Checked in today" value="186" change="+14.2%" note="128 currently active" />
-        <StatCard icon={LogOut} label="Checked out" value="58" note="31.2% of check-ins" tone="green" />
-        <StatCard icon={Timer} label="Average work time" value="6h 36m" note="24m above network avg" tone="blue" />
-        <StatCard icon={Activity} label="Missed check-outs" value="3" note="Requires admin review" tone="purple" />
+        <StatCard icon={LogIn} label="Checked in today" value="8" change="+14.2%" note="3 currently in the hub" />
+        <StatCard icon={LogOut} label="Checked out" value="5" note="Latest departure · 15:06" tone="green" />
+        <StatCard icon={Timer} label="Average visit" value="5h 11m" note="36h 14m recorded today" tone="blue" />
+        <StatCard icon={Activity} label="Missing check-outs" value="1" note="Requires manager review" tone="purple" />
       </section>
       <section className="panel data-panel">
-        <div className="panel-head"><div><h2>Today’s attendance</h2><p>Friday, 17 July 2026 · All hub centres</p></div><div className="heading-actions"><button className="secondary-button"><CalendarDays size={16}/> Today</button><button className="secondary-button"><Download size={16}/> Export</button></div></div>
+        <div className="panel-head"><div><h2>Today’s attendance</h2><p>Saturday, 18 July 2026 · {hubProfile.name}</p></div><div className="heading-actions"><button className="secondary-button"><CalendarDays size={16}/> Today</button><button className="secondary-button"><Download size={16}/> Export</button></div></div>
         <div className="table-wrap"><table><thead><tr><th>Freelancer</th><th>Project</th><th>Time in</th><th>Time out</th><th>Duration</th><th>State</th><th></th></tr></thead><tbody>{attendance.map(row => <tr key={row.name}><td><div className="person-cell"><Avatar initials={row.initials}/><strong>{row.name}</strong></div></td><td>{row.project}</td><td>{row.in}</td><td>{row.out}</td><td><strong>{row.duration}</strong></td><td><StatusBadge status={row.state}/></td><td><button className="icon-button"><MoreHorizontal size={18}/></button></td></tr>)}</tbody></table></div>
       </section>
     </>
   );
 }
 
-function HubsPage() {
+function PeoplePage({ onViewPerson }) {
+  const [query, setQuery] = useState('');
+  const [status, setStatus] = useState('All');
+  const filtered = useMemo(() => people.filter(person => (status === 'All' || person.status === status) && `${person.name} ${person.role} ${person.project}`.toLowerCase().includes(query.toLowerCase())), [query, status]);
   return (
     <>
-      <section className="page-heading"><div><div className="breadcrumb">Manage <ChevronRight size={14}/> Hub centres</div><h1>Hub centres</h1><p>Manage partner locations, capacity, managers, and operating status.</p></div><button className="primary-button compact"><Building2 size={17}/> Add hub centre</button></section>
-      <section className="hub-grid">{hubs.map(hub => <article className="hub-card" key={hub.name}><div className="hub-card-top"><div className="building-icon"><Building2 size={22}/></div><StatusBadge status="Active"/></div><h3>{hub.name}</h3><p>{hub.city}, Nigeria · Managed by {hub.manager}</p><div className="hub-card-metrics"><div><span>Active now</span><strong>{hub.active}</strong></div><div><span>Workspaces</span><strong>{hub.desks}</strong></div><div><span>Utilization</span><strong>{hub.utilization}%</strong></div></div><div className="util-bar large"><i style={{width: `${hub.utilization}%`}}/></div><div className="hub-card-foot"><span>Jul settlement <strong>{formatNaira(hub.settlement)}</strong></span><button>Manage <ArrowRight size={15}/></button></div></article>)}</section>
+      <section className="page-heading"><div><div className="breadcrumb">{hubProfile.name} <ChevronRight size={14}/> People</div><h1>People</h1><p>See everyone using this centre, their contact details, project, visits, hours, and payment state.</p></div><button className="primary-button compact"><Users size={17}/> Add member</button></section>
+      <section className="mini-stats">
+        <div><span>Registered members</span><strong>23</strong></div><div><span>In the hub now</span><strong>3</strong></div><div><span>Active projects</span><strong>4</strong></div><div><span>Payments due</span><strong>2</strong></div>
+      </section>
+      <section className="panel data-panel">
+        <div className="table-tools"><div className="search-control"><Search size={17}/><input placeholder="Search members or projects" value={query} onChange={e => setQuery(e.target.value)}/></div><div className="filter-tabs">{['All','In hub','Checked out'].map(item => <button key={item} className={status === item ? 'selected' : ''} onClick={() => setStatus(item)}>{item}</button>)}</div><button className="secondary-button"><Filter size={16}/> Filters</button></div>
+        <div className="table-wrap"><table><thead><tr><th>Member</th><th>Contact</th><th>Current project</th><th>Total hours</th><th>Visits</th><th>Payment</th><th>Status</th><th></th></tr></thead><tbody>{filtered.map(person => <tr key={person.name}><td><div className="person-cell"><Avatar initials={person.initials}/><div><strong>{person.name}</strong><span className="subcell">{person.role}</span></div></div></td><td><span>{person.email}</span><span className="subcell">{person.phone}</span></td><td>{person.project}</td><td><strong>{person.hours}</strong></td><td>{person.visits}</td><td><StatusBadge status={person.payment}/></td><td><StatusBadge status={person.status}/></td><td><button className="text-button" onClick={() => onViewPerson(person)}>View <ChevronRight size={14}/></button></td></tr>)}</tbody></table></div>
+        {filtered.length === 0 && <div className="empty-state"><Search size={24}/><strong>No members found</strong><span>Try a different search or attendance state.</span></div>}
+      </section>
     </>
   );
 }
 
-function SettlementsPage() {
-  const total = hubs.reduce((sum, hub) => sum + hub.settlement, 0);
+function PaymentsPage() {
+  const [status, setStatus] = useState('All');
+  const filtered = status === 'All' ? projects : projects.filter(project => project.paymentStatus === status);
+  const total = projects.reduce((sum, project) => sum + project.hubFee, 0);
+  const received = projects.filter(project => project.paymentStatus === 'Paid').reduce((sum, project) => sum + project.hubFee, 0);
   return (
     <>
-      <section className="page-heading"><div><div className="breadcrumb">Manage <ChevronRight size={14}/> Settlements</div><h1>Hub settlements</h1><p>Review the 5% hub service fees before monthly partner payouts.</p></div><button className="primary-button compact"><CheckCircle2 size={17}/> Review payout run</button></section>
-      <section className="settlement-banner"><div className="settlement-icon"><WalletCards size={27}/></div><div><span>Next payout run · 31 July 2026</span><strong>₦1,284,500</strong><p>47 partner centres · 218 completed milestones</p></div><div className="settlement-progress"><div><span>Ready for approval</span><strong>92%</strong></div><div><i style={{width:'92%'}}/></div></div><button className="secondary-button">View breakdown <ArrowRight size={16}/></button></section>
-      <section className="panel data-panel"><div className="panel-head"><div><h2>Partner settlement preview</h2><p>Calculated automatically from successful project transactions</p></div><button className="secondary-button"><Download size={16}/> Export statement</button></div><div className="table-wrap"><table><thead><tr><th>Hub centre</th><th>Active projects</th><th>Eligible transactions</th><th>Hub share</th><th>Validation</th><th></th></tr></thead><tbody>{hubs.map((hub, index) => <tr key={hub.name}><td><strong>{hub.name}</strong></td><td>{hub.active}</td><td>{formatNaira(hub.settlement * 20)}</td><td><strong>{formatNaira(hub.settlement)}</strong><span className="subcell">5% service share</span></td><td><span className="verified"><Check size={14}/> Verified</span></td><td><button className="text-button">Review <ChevronRight size={14}/></button></td></tr>)}</tbody><tfoot><tr><td colSpan="3">Preview subtotal</td><td>{formatNaira(total)}</td><td colSpan="2"></td></tr></tfoot></table></div></section>
+      <section className="page-heading"><div><div className="breadcrumb">{hubProfile.name} <ChevronRight size={14}/> Payments</div><h1>Payments & revenue</h1><p>Track the hub’s 5% revenue against every person and project completed at this centre.</p></div><button className="primary-button compact"><CheckCircle2 size={17}/> Record payment</button></section>
+      <section className="settlement-banner"><div className="settlement-icon"><WalletCards size={27}/></div><div><span>JULY HUB REVENUE</span><strong>{formatNaira(total)}</strong><p>{projects.length} project-linked payments · {hubProfile.name}</p></div><div className="settlement-progress"><div><span>Received so far</span><strong>{Math.round((received / total) * 100)}%</strong></div><div><i style={{width:`${(received / total) * 100}%`}}/></div></div><button className="secondary-button"><Download size={16}/> Export statement</button></section>
+      <section className="stats-grid payment-stats">
+        <StatCard icon={CheckCircle2} label="Revenue received" value={formatNaira(received)} note="3 payments confirmed" tone="green" />
+        <StatCard icon={Clock3} label="Pending revenue" value="₦41,250" note="2 payments expected" />
+        <StatCard icon={Activity} label="Overdue revenue" value="₦16,000" note="1 payment needs follow-up" tone="purple" />
+        <StatCard icon={FileText} label="Project value tracked" value="₦2.27m" note="Across 6 centre users" tone="blue" />
+      </section>
+      <section className="panel data-panel"><div className="table-tools"><div><h2>Payment register</h2><p>Every project and the revenue due to this hub</p></div><div className="filter-tabs payment-tabs">{['All','Paid','Pending','Scheduled','Overdue'].map(item => <button key={item} className={status === item ? 'selected' : ''} onClick={() => setStatus(item)}>{item}</button>)}</div></div><div className="table-wrap"><table><thead><tr><th>Worker</th><th>Project</th><th>Project value</th><th>Hub revenue</th><th>Due date</th><th>Payment</th><th></th></tr></thead><tbody>{filtered.map(project => <tr key={project.id}><td><div className="person-cell"><Avatar initials={project.initials}/><div><strong>{project.freelancer}</strong><span className="subcell">{project.id}</span></div></div></td><td>{project.title}</td><td>{formatNaira(project.value)}</td><td><strong>{formatNaira(project.hubFee)}</strong><span className="subcell">5% hub share</span></td><td>{project.paymentDue}</td><td><StatusBadge status={project.paymentStatus}/></td><td>{project.paymentStatus === 'Paid' ? <span className="verified"><Check size={14}/> Confirmed</span> : <button className="text-button">Update <ChevronRight size={14}/></button>}</td></tr>)}</tbody><tfoot><tr><td colSpan="3">Total hub revenue</td><td>{formatNaira(total)}</td><td colSpan="3"></td></tr></tfoot></table></div></section>
     </>
   );
 }
@@ -436,13 +509,37 @@ function ProjectDrawer({ project, onClose }) {
           <div className="project-owner"><Avatar initials={project.initials}/><div><strong>{project.freelancer}</strong><span>{project.category}</span></div><StatusBadge status={project.status}/></div>
           <div className="project-highlight"><div><span>Project timeline</span><strong>{project.start} — {project.end}</strong></div><div className="progress-line"><i style={{width:`${project.progress}%`}}/></div><small>{project.progress}% of scheduled duration elapsed</small></div>
           <h3>Project details</h3>
-          <dl className="details-grid"><div><dt>Client</dt><dd>{project.client}</dd></div><div><dt>Hub centre</dt><dd>{project.hub}</dd></div><div><dt>Project value</dt><dd>{formatNaira(project.value)}</dd></div><div><dt>Hub service share</dt><dd>{formatNaira(project.hubFee)} · 5%</dd></div><div><dt>Milestones</dt><dd>{project.milestone} complete</dd></div><div><dt>Hours logged</dt><dd>64h 36m</dd></div></dl>
+          <dl className="details-grid"><div><dt>Client</dt><dd>{project.client}</dd></div><div><dt>Payment</dt><dd>{project.paymentStatus} · due {project.paymentDue}</dd></div><div><dt>Project value</dt><dd>{formatNaira(project.value)}</dd></div><div><dt>Hub revenue</dt><dd>{formatNaira(project.hubFee)} · 5%</dd></div><div><dt>Milestones</dt><dd>{project.milestone} complete</dd></div><div><dt>Hours logged</dt><dd>64h 36m</dd></div></dl>
           <h3>Today’s activity</h3>
           <div className="activity-timeline"><div><i><LogIn size={16}/></i><div><strong>Checked in</strong><span>08:47 · QR pass verified at reception</span></div><b>Verified</b></div><div><i><Clock3 size={16}/></i><div><strong>Currently working</strong><span>6 hours 42 minutes recorded today</span></div><b className="live-text">Live</b></div></div>
           <h3>Milestones</h3>
           <div className="milestone-card"><div><CheckCircle2 size={19}/><div><strong>Client review and final revisions</strong><span>Due 30 Jul 2026</span></div><strong>{formatNaira(project.value / 2)}</strong></div><div><Clock3 size={19}/><div><strong>Final files and handover</strong><span>Due {project.end}</span></div><strong>{formatNaira(project.value / 2)}</strong></div></div>
         </div>
         <div className="drawer-actions"><button className="secondary-button">View full record</button><button className="primary-button compact">Manage project</button></div>
+      </aside>
+    </div>
+  );
+}
+
+function PersonDrawer({ person, onClose }) {
+  if (!person) return null;
+  return (
+    <div className="overlay" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <aside className="drawer">
+        <div className="drawer-head"><div><span className="eyebrow">MEMBER PROFILE</span><h2>{person.name}</h2></div><button className="icon-button" onClick={onClose} aria-label="Close member profile"><X size={20}/></button></div>
+        <div className="drawer-content">
+          <div className="member-identity"><Avatar initials={person.initials}/><div><strong>{person.name}</strong><span>{person.role}</span></div><StatusBadge status={person.status}/></div>
+          <div className="member-contact"><div><Mail size={16}/><span>{person.email}</span></div><div><Users size={16}/><span>{person.phone}</span></div></div>
+          <h3>Hub activity</h3>
+          <dl className="details-grid"><div><dt>Total verified hours</dt><dd>{person.hours}</dd></div><div><dt>Centre visits</dt><dd>{person.visits} visits</dd></div><div><dt>Current attendance</dt><dd>{person.status}</dd></div><div><dt>Payment state</dt><dd>{person.payment}</dd></div></dl>
+          <h3>Current project</h3>
+          <div className="member-project-card"><FileText size={20}/><div><strong>{person.project}</strong><span>{hubProfile.name} · Verified member</span></div><ChevronRight size={18}/></div>
+          <h3>Recent visits</h3>
+          <div className="activity-timeline"><div><i><LogIn size={16}/></i><div><strong>Today · Checked in</strong><span>08:47 via verified QR pass</span></div><b>6h 42m</b></div><div><i><CheckCircle2 size={16}/></i><div><strong>17 Jul · Completed visit</strong><span>09:06 — 16:38</span></div><b>7h 32m</b></div><div><i><CheckCircle2 size={16}/></i><div><strong>16 Jul · Completed visit</strong><span>08:52 — 15:47</span></div><b>6h 55m</b></div></div>
+          <h3>Payment summary</h3>
+          <div className="payment-profile"><div><span>Current state</span><StatusBadge status={person.payment}/></div><div><span>Revenue linked to member</span><strong>{formatNaira(projects.find(project => project.freelancer === person.name)?.hubFee || 0)}</strong></div></div>
+        </div>
+        <div className="drawer-actions"><button className="secondary-button">Attendance history</button><button className="primary-button compact">Manage member</button></div>
       </aside>
     </div>
   );
@@ -479,7 +576,13 @@ function Dashboard({ onLogout }) {
   const [page, setPage] = useState('Overview');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [project, setProject] = useState(null);
+  const [person, setPerson] = useState(null);
   const [scanOpen, setScanOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [page]);
+
   return (
     <div className="app-shell">
       <Sidebar page={page} setPage={setPage} open={sidebarOpen} setOpen={setSidebarOpen} onLogout={onLogout}/>
@@ -488,13 +591,14 @@ function Dashboard({ onLogout }) {
         <Topbar setSidebarOpen={setSidebarOpen} onScan={() => setScanOpen(true)}/>
         <main className="content">
           {page === 'Overview' && <Overview onViewProject={setProject} onScan={() => setScanOpen(true)} setPage={setPage}/>} 
-          {page === 'Projects' && <ProjectsPage onViewProject={setProject}/>} 
+          {page === 'People' && <PeoplePage onViewPerson={setPerson}/>}
           {page === 'Attendance' && <AttendancePage onScan={() => setScanOpen(true)}/>} 
-          {page === 'Hub centres' && <HubsPage/>} 
-          {page === 'Settlements' && <SettlementsPage/>}
+          {page === 'Projects' && <ProjectsPage onViewProject={setProject}/>}
+          {page === 'Payments' && <PaymentsPage/>}
         </main>
       </div>
       <ProjectDrawer project={project} onClose={() => setProject(null)}/>
+      <PersonDrawer person={person} onClose={() => setPerson(null)}/>
       {scanOpen && <QRModal onClose={() => setScanOpen(false)}/>} 
     </div>
   );
